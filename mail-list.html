@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한울 쇼핑몰</title>
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <style>
+        #app > ul {
+            max-width : 1190px;
+            display : flex;
+            justify-content : space-between;
+            margin: 0 auto;
+        }
+        #app >ul > li {
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <h1>쇼핑 리스트</h1>
+    <div id="app">
+        <ul>
+            <li v-for="item in items">
+                <img v-bind:src="item.imgURL" v-bind:alt="item.imgALT">
+                <p class="title">{{ item.imgTITLE }}</p>
+                <strong class="price">{{item.imgPRICE }}</strong><em class="sale-pct">{{ item.imgSALE }}</em>
+                <div id="btns">
+                    <button>구매하기</button>
+                    <button>장바구니</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+         var app = new Vue({
+             el: '#app',
+            //  methods: {
+            //      //구매버튼 기능 (=함수-->)
+            //      //장바구니 버튼
+            //  }
+             data : {
+                 items: [
+                 {
+                 imgURL: 'https://picsum.photos/id/26/200/250',
+                 imgALT: '상품사진1',
+                 imgTITLE: '상품명1',
+                 imgPRICE: '20,000',
+                 imgSALE: '10%'
+                 },
+                 {
+                 imgURL: 'https://picsum.photos/id/32/200/250',
+                 imgALT: '상품사진2',
+                 imgTITLE: '상품명2',
+                 imgPRICE: '30,000',
+                 imgSALE: '23%'
+                 },
+                 {
+                 imgURL: 'https://picsum.photos/id/204/200/250',
+                 imgALT: '상품사진3',
+                 imgTITLE: '상품명3',
+                 imgPRICE: '10,000',
+                 imgSALE: '67%'
+                 },
+                 {
+                 imgURL: 'https://picsum.photos/id/101/200/250',
+                 imgALT: '상품사진4',
+                 imgTITLE: '상품명4',
+                 imgPRICE: '15,000',
+                 imgSALE: '30%'
+                 }
+                 ]
+             }
+         });
+    </script>
+</body>
+</html>
